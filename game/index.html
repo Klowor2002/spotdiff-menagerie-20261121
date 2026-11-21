@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Clockwork Menagerie — a spot-the-difference hunt</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="hall">
+  <header id="hud">
+    <div class="hud-left">
+      <div id="game-title">THE CLOCKWORK MENAGERIE</div>
+      <div id="scene-name">ROOM 1 OF 4 · THE BRASS WORKSHOP</div>
+    </div>
+    <div id="counter">6 LEFT TO FIND</div>
+    <div class="hud-right">
+      <div id="score">SCORE 0</div>
+      <div id="combo"></div>
+      <button id="hint-btn" type="button">✦ HINT (3)</button>
+    </div>
+  </header>
+  <div id="timer-row">
+    <div id="timer-track"><div id="timer-fill"></div></div>
+    <div id="timer-text">2:30</div>
+  </div>
+  <main id="stage">
+    <figure class="panel-frame">
+      <canvas id="panel-left" width="596" height="640"></canvas>
+      <figcaption>THE ROOM AS IT WAS</figcaption>
+    </figure>
+    <div id="medallion" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="40" height="40">
+        <circle cx="21" cy="21" r="12" fill="none" stroke="#f0c96a" stroke-width="3.4"/>
+        <line x1="30" y1="30" x2="42" y2="42" stroke="#f0c96a" stroke-width="4.6" stroke-linecap="round"/>
+        <circle cx="21" cy="21" r="5" fill="none" stroke="#c9973f" stroke-width="2"/>
+      </svg>
+    </div>
+    <figure class="panel-frame">
+      <canvas id="panel-right" width="596" height="640"></canvas>
+      <figcaption>THE ROOM AS IT IS</figcaption>
+    </figure>
+
+    <section id="overlay-title" class="overlay">
+      <h1>The Clockwork<br>Menagerie</h1>
+      <p class="tagline">A spot-the-difference hunt through four rooms of brass and wonder.</p>
+      <ul class="rooms">
+        <li><b>The Brass Workshop</b><span>6 differences · 2:30</span></li>
+        <li><b>The Aviary Dome</b><span>8 differences · 2:20</span></li>
+        <li><b>The Midnight Aquarium</b><span>10 differences · 2:10</span></li>
+        <li><b>The Grand Menagerie</b><span>12 differences · 2:00</span></li>
+      </ul>
+      <p class="how">Click a difference in either picture to ring it. A wrong click costs 5 seconds.
+      Quick finds build a combo worth up to ×5. Press <b>H</b> for a hint — three per room.</p>
+      <button id="begin-btn" class="big-btn" type="button">Begin the Hunt</button>
+    </section>
+
+    <section id="overlay-clear" class="overlay">
+      <h2>Room Clear</h2>
+      <div id="clear-stars">★★★</div>
+      <p id="clear-score">Room score 0</p>
+      <p class="how">Every difference ringed. The Menagerie approves.</p>
+      <button id="clear-next" class="big-btn" type="button">Next room →</button>
+    </section>
+
+    <section id="overlay-complete" class="overlay">
+      <h2>The Menagerie Is Yours</h2>
+      <p class="tagline">All thirty-six differences, found.</p>
+      <div id="final-score">0</div>
+      <p id="final-grade">Grand Keeper of the Menagerie</p>
+      <button id="again-btn" class="big-btn" type="button">Hunt Again</button>
+    </section>
+
+    <section id="overlay-failed" class="overlay">
+      <h2>The Clock Wins This Room</h2>
+      <p id="failed-text">You found 0 of 6.</p>
+      <p class="how">The differences keep their secrets — this time.</p>
+      <button id="retry-btn" class="big-btn" type="button">Try the Room Again</button>
+    </section>
+
+    <section id="overlay-pause" class="overlay">
+      <h2>Paused</h2>
+      <p class="how">The Menagerie waits, ticking softly.</p>
+      <button id="resume-btn" class="big-btn" type="button">Resume</button>
+    </section>
+  </main>
+  <footer id="strip">
+    <div id="dots"></div>
+    <div id="message">Four rooms. Thirty-six small betrayals. Find them all.</div>
+  </footer>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
